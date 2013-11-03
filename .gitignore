@@ -1,5 +1,10 @@
-*/config/development
-*/logs/log-*.php
-*/logs/!index.html
-*/cache/*
-*/cache/!index.html
+application/config/config.php
+application/config/database.php
+application/logs/log-*.php
+application/logs/!index.html
+application/cache/*
+application/cache/!index.html
+/nbproject/private/
+/nbproject/project.xml
+/nbproject/project.properties
+public_html/.htaccess
