@@ -29,18 +29,21 @@ if (!defined('BASEPATH')) {
  */
 class FlashCards extends CI_Controller {
 
-    public function index() {
+    function __construct() {
+        parent::__construct();
         // set the location of our modules
         $this->load->module_path('modules');
+    }
 
+    public function index() {
         // Activate module
         $this->load->module('header');
         $this->load->module('sidebar');
         $this->load->module('footer');
 
         $data = array(
-        	'search' => 'Tidak',
-        	'menu_actived' => 'home',
+            'search' => 'Tidak',
+            'menu_actived' => 'home',
         );
 
         $this->header->controller->header_controller->index($data);
