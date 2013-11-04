@@ -8,7 +8,7 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="<?php echo base_url('assets/ico/favicon.png'); ?>">
 
-        <title>Starter Template for Bootstrap</title>
+        <title>Flash Card</title>
 
         <!-- Bootstrap core CSS -->
         <link href="<?php echo base_url('assets/css/bootstrap.css'); ?>" rel="stylesheet">
@@ -29,7 +29,7 @@
     <body>
 
         <!-- Fixed navbar -->
-        <div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -40,43 +40,23 @@
                     <a class="navbar-brand" href="#">Flash Card</a>
                 </div>
                 <div class="navbar-collapse collapse">
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search" class="form-control" value="<?php echo $search; ?>">
+                        </div>
+                        <button type="submit" class="btn btn-success">Search</button>
+                    </form>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="#about">Explore</a></li>
+                        <li><a href="#contact">Help</a></li>
+                        
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="../navbar/">Default</a></li>
-                        <li><a href="../navbar-static-top/">Static top</a></li>
-                        <li class="active"><a href="./">Fixed top</a></li>
+                        <li><a href="#">John Doe</a></li>
+                        <li><a href="#">Create Flashcard</a></li>
+                        <li><a href="#">Setting</a></li>
+                        <li><a href="#">Log Out</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
-            </div>
-        </div>
-
-        <div class="cheader-search">
-            <div class="container">
-                <div class="text-center">
-                    <form class="navbar-form" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" value="<?php echo $search; ?>">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                </div>
-
-
             </div>
         </div>
