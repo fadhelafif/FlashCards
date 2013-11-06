@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-sm-3 col-md-3">
 	<img class="img-responsive" src="https://2.gravatar.com/avatar/38ca8b80a34f986f7c91aacff08e1faa?s=440" alt="">
 	<a href="#">John Doe</a>
 

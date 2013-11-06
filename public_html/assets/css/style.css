@@ -13,3 +13,9 @@ body {
 .navbar-form {
 	width: 350px;
 }
+
+@media (max-width: 767px){
+	.navbar-form {
+		width: auto;
+	}
+}

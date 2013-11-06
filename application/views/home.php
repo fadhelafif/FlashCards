@@ -3,7 +3,7 @@
             <div class="container">
                 <div class="row">
                     <?php echo $sidebar; ?>
-                    <div class="col-md-9">
+                    <div class="col-sm-9 col-md-9">
                         <h1>Deck</h1>
                         <div class="panel panel-default">
                             <div class="panel-body">
