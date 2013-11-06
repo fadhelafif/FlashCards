@@ -6,3 +6,10 @@ body {
 .cheader-search form{
 	display: inline-block;
 }
+
+
+
+
+.navbar-form {
+	width: 350px;
+}
