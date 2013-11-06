@@ -12,6 +12,7 @@
 
         <!-- Bootstrap core CSS -->
         <link href="<?php echo base_url('assets/css/bootstrap.css'); ?>" rel="stylesheet">
+        <link href="<?php echo base_url('assets/css/font-awesome.css'); ?>" rel="stylesheet">
 
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
@@ -52,10 +53,15 @@
                         
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">John Doe</a></li>
-                        <li><a href="#">Create Flashcard</a></li>
-                        <li><a href="#">Setting</a></li>
-                        <li><a href="#">Log Out</a></li>
+                        <li>
+                            <a href="#">
+                                <img height="20" src="https://2.gravatar.com/avatar/38ca8b80a34f986f7c91aacff08e1faa?d=https%3A%2F%2Fidenticons.github.com%2F3b7b0751e94b036d0613a6e69e948ff3.png&amp;r=x&amp;s=140" width="20">
+                                John Doe
+                            </a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-file-o"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cogs"></i></a></li>
+                        <li><a href="#"><i class="fa fa-sign-out"></i></a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

@@ -1,4 +1,4 @@
 FlashCards
 ==========
 
-This application use CodeIgniter Framework, Bootstrap Framework, jQuery Library, and Modular CI - HMVC for CodeIgniter.
+This application use CodeIgniter Framework, Bootstrap Framework, Font Awesome, jQuery Library, and Modular CI - HMVC for CodeIgniter.
