@@ -26,13 +26,15 @@ if (!defined('BASEPATH')) {
  * Description of flashcards
  *
  * @author Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
+ * @property FC_Loader $load extends CI_Loader
+ * @property Data $data generate data
  */
 class FlashCards extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        // set the location of our modules
-        $this->load->module_path('modules');
+        $this->load->module_path('modules'); // set the location of our modules
+        $this->load->library('data'); // load library - Data Class
     }
 
     /*
@@ -40,18 +42,17 @@ class FlashCards extends CI_Controller {
      */
 
     public function index() {
-        // activate module(s)
-        $this->load->module('header');
-        $this->load->module('sidebar');
-        $this->load->module('footer');
-        $data = array(
-            'search' => 'Tidak',
-            'menu_actived' => 'home',
-        );
-        $this->header->controller->header_controller->index($data);
-        $data['sidebar'] = $this->sidebar->controller->sidebar_controller->index($data);
-        $this->load->view('home', $data);
-        $this->footer->controller->footer_controller->index($data);
+        // activate header module
+        $this->load->module($this->data->HEADER);
+        $this->data->headerInit();
+        $this->header->controller->header_controller->index($this->data->getData());
+        // activate sidebar module
+        $this->load->module($this->data->SIDEBAR);
+        $this->data->placeModule($this->data->SIDEBAR, $this->sidebar->controller->sidebar_controller->index($this->data->getData()));
+        $this->load->view('home', $this->data->getModule());
+        // activate sidebar footer
+        $this->load->module($this->data->FOOTER);
+        $this->footer->controller->footer_controller->index($this->data->getData());
     }
 
 }

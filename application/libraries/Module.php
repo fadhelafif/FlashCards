@@ -1,8 +1,5 @@
 <?php
 
-if (!defined('BASEPATH')) {
-    exit('No direct script access allowed');
-}
 /**
  * CodeIgniter
  *
@@ -29,6 +26,10 @@ if (!defined('BASEPATH')) {
  * @author		ExiteCMS Dev Team
  * @link
  */
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
+
 class CI_Module {
 
     // use a generic class name in controllers to access its own module classes
