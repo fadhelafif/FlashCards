@@ -9,7 +9,7 @@ Aplikasi ini menggunakan:
 
 
 ## Access Module via URL:
-`your_site/module_name/method_in_module_controller`, example: flashcard.com/sidebar/setting.
+`your_site/module_name/method_in_module_controller`, contoh: flashcard.com/sidebar/setting.
 `sidebar` adalah nama modul, dan `setting` adalah metode yang berada di dalam controller yang dimiliki oleh modul sidebar
 
 ## Naming Module Controller
