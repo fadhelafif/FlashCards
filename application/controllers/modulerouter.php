@@ -9,7 +9,7 @@
  * All you need is to add a route in config/routes.php for each of your
  * modules:
  *
- * $route['(:any)/(.*)'] = 'modulerouter/$1/$2';
+ * $route['(:any)/(.*)'] = 'modulerouter/$1/$1_controller/$2';
  *
  * @package		Modular CI
  * @subpackage	Controllers
