@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2013 Rei Ichimaru (市丸 零)
+ * Copyright (C) 2013 Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ if (!defined('BASEPATH')) {
 /**
  * Description of flashcards
  *
- * @author shinzo maru
+ * @author Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
  */
 class FlashCards extends CI_Controller {
 
@@ -35,23 +35,22 @@ class FlashCards extends CI_Controller {
         $this->load->module_path('modules');
     }
 
+    /*
+     * default call
+     */
+
     public function index() {
-        // Activate module
+        // activate module(s)
         $this->load->module('header');
         $this->load->module('sidebar');
         $this->load->module('footer');
-
         $data = array(
             'search' => 'Tidak',
             'menu_actived' => 'home',
         );
-
         $this->header->controller->header_controller->index($data);
-
         $data['sidebar'] = $this->sidebar->controller->sidebar_controller->index($data);
-
         $this->load->view('home', $data);
-
         $this->footer->controller->footer_controller->index($data);
     }
 
