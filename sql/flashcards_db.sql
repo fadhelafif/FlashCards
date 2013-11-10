@@ -273,6 +273,30 @@ CREATE INDEX `fk_report_profile1` ON `report` (`profile_id` ASC) ;
 CREATE INDEX `fk_report_flashcard1` ON `report` (`flashcard_id` ASC) ;
 
 
+-- -----------------------------------------------------
+-- Table `follow`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `follow` ;
+
+CREATE  TABLE IF NOT EXISTS `follow` (
+  `profile_id` INT NOT NULL ,
+  `profile_followed` INT NOT NULL ,
+  PRIMARY KEY (`profile_id`, `profile_followed`) ,
+  CONSTRAINT `fk_profile_has_profile_profile1`
+    FOREIGN KEY (`profile_id` )
+    REFERENCES `profile` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_profile_has_profile_profile2`
+    FOREIGN KEY (`profile_followed` )
+    REFERENCES `profile` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE INDEX `fk_profile_has_profile_profile2` ON `follow` (`profile_followed` ASC) ;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
