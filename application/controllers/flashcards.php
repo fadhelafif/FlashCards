@@ -62,7 +62,7 @@ class FlashCards extends CI_Controller {
 
     private function _activateHeader() {
         $this->load->module('header');
-        $this->data->headerInit('search', 'Dodol');
+        $this->data->headerInit('search', 'Flash');
         $this->data->headerInit('menu_actived', 'Contact');
         $this->header->controller->header_controller->index($this->data->getData());
     }

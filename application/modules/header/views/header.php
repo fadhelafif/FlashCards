@@ -71,7 +71,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="#">
-                                <img height="20" src="https://2.gravatar.com/avatar/38ca8b80a34f986f7c91aacff08e1faa?d=https%3A%2F%2Fidenticons.github.com%2F3b7b0751e94b036d0613a6e69e948ff3.png&amp;r=x&amp;s=140" width="20">
+                                <img width="20" height="20" src="<?php echo base_url('assets/img/placeholder.jpg'); ?>" alt="flashcard cover">
                                 John Doe
                             </a>
                         </li>
