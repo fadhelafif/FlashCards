@@ -27,9 +27,8 @@ if (!defined('BASEPATH')) {
  *
  * @author Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
  * @author Fadhel Afif
- * @property Data $data generate data
  */
-class Sidebar_Controller extends FC_Controller {
+class Recentfc_Controller extends FC_Controller {
 
     function __construct() {
         parent::__construct();
@@ -41,10 +40,7 @@ class Sidebar_Controller extends FC_Controller {
 
     function index($data = '') {
         $self = $this->__modulereference;
-        // activate recentfc module
-        $this->load->module('recentfc');
-        $this->data->placeModule('recentfc', $this->recentfc->controller->recentfc_controller->index());
-        return $this->$self->view('sidebar', $this->data->getModules(), TRUE);
+        return $this->$self->view('recentfc', $data, TRUE);
     }
 
 }

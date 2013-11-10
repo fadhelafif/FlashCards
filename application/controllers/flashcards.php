@@ -34,7 +34,6 @@ class FlashCards extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->module_path('modules'); // set the location of our modules
-        $this->load->library('data'); // load library - Data Class
     }
 
     /*
@@ -42,16 +41,39 @@ class FlashCards extends CI_Controller {
      */
 
     public function index() {
-        // activate header module
-        $this->load->module($this->data->HEADER);
-        $this->data->headerInit();
+        self::_activateHeader(); // activate header module
+        self::_activateContentSide(); // activate sidebar module
+        self::_activateFooter(); // activate footer module
+    }
+
+    /*
+     * activate sidebar module
+     */
+
+    private function _activateContentSide() {
+        $this->load->module('sidebar');
+        $this->data->placeModule('sidebar', $this->sidebar->controller->sidebar_controller->index($this->data->getData()));
+        $this->load->view('home', $this->data->getModules());
+    }
+
+    /*
+     * activate header module
+     */
+
+    private function _activateHeader() {
+        $this->load->module('header');
+        $this->data->headerInit('search', 'Dodol');
+        $this->data->headerInit('menu_actived', 'Contact');
         $this->header->controller->header_controller->index($this->data->getData());
-        // activate sidebar module
-        $this->load->module($this->data->SIDEBAR);
-        $this->data->placeModule($this->data->SIDEBAR, $this->sidebar->controller->sidebar_controller->index($this->data->getData()));
-        $this->load->view('home', $this->data->getModule());
-        // activate sidebar footer
-        $this->load->module($this->data->FOOTER);
+    }
+
+    /*
+     * activate footer module
+     */
+
+    private function _activateFooter() {
+        $this->load->module('footer');
+        $this->data->footerInit('copyright', 'Golongan anak gaul');
         $this->footer->controller->footer_controller->index($this->data->getData());
     }
 

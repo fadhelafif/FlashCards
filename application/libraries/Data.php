@@ -31,29 +31,51 @@ class Data {
 
     private $data = array(); // pass data to request
     private $module = array(); // pass module to request
-    // module constant, use to load module
-    public $HEADER = 'header';
-    public $SIDEBAR = 'sidebar';
-    public $FOOTER = 'footer';
+
+    /*
+     * header module sections
+     */
 
     public function headerInit($key = '', $value = '') {
         self::_initHeader();
+        self::_setInit($key, $value);
+    }
 
+    private function _initHeader() {
+        $data = array(
+            'search' => '',
+            'menu_actived' => '',
+        );
+        array_merge($this->data, $data);
+    }
+
+    /*
+     * footer module sections
+     */
+
+    public function footerInit($key = '', $value = '') {
+        self::_initFooter();
+        self::_setInit($key, $value);
+    }
+
+    private function _initFooter() {
+        $data = array('copyright' => '');
+        array_merge($this->data, $data);
+    }
+
+    private function _setInit($key = '', $value = '') { // set data array
         if ($key !== '' and $value !== '') {
             $this->data[$key] = $value;
         }
     }
 
-    private function _initHeader() {
-        $this->data = array(
-            'search' => '',
-            'menu_actived' => '',
-        );
-    }
-
-    public function getData() {
+    public function getData() { // get all data array
         return $this->data;
     }
+
+    /*
+     * module handler
+     */
 
     public function placeModule($module, $value) {
         self::_initModule();
@@ -62,11 +84,12 @@ class Data {
 
     private function _initModule() {
         $this->module = array(
-            'sidebar' => NULL
+            'sidebar' => NULL,
+            'recentfc' => NULL
         );
     }
 
-    public function getModule() {
+    public function getModules() { // get all modules
         return $this->module;
     }
 
