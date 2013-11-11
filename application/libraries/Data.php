@@ -29,8 +29,10 @@ if (!defined('BASEPATH')) {
  */
 class Data {
 
-    private $data = array(); // pass data to request
-    private $module = array(); // pass module to request
+    private $data = array(); // data request
+    private $module = array(); // module - access from main controller
+    private $child = array(); // child module
+    private $isChild = FALSE; // check is child module
 
     /*
      * header module sections
@@ -77,20 +79,19 @@ class Data {
      * module handler
      */
 
-    public function placeModule($module, $value) {
-        self::_initModule();
-        $this->module[$module] = $value;
-    }
+    public function placeModule($key, $value, $isChild = FALSE) {
+        if ($isChild) {
+            $this->child[$key] = $value;
+        } else {
+            $this->module[$key] = $value;
+        }
 
-    private function _initModule() {
-        $this->module = array(
-            'sidebar' => NULL,
-            'recentfc' => NULL
-        );
+        $this->isChild = $isChild;
     }
 
     public function getModules() { // get all modules
-        return $this->module;
+        $return = ($this->isChild) ? implode('', $this->child) : implode('', $this->module);
+        return array('module' => $return);
     }
 
 }

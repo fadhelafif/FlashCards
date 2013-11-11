@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2013 Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
+ * Copyright (C) 2013 Fadhel Afif <deel.mr0@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,13 +23,13 @@ if (!defined('BASEPATH')) {
 }
 
 /**
- * Description of flashcards
+ * Description of profile module
  *
  * @author Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
  * @author Fadhel Afif
  * @property Data $data generate data
  */
-class Sidebar_Controller extends FC_Controller {
+class Profile_Controller extends FC_Controller {
 
     function __construct() {
         parent::__construct();
@@ -41,16 +41,7 @@ class Sidebar_Controller extends FC_Controller {
 
     function index($data = '') {
         $self = $this->__modulereference;
-
-        // activate profile module
-        $this->load->module('profile');
-        $this->data->placeModule('profile', $this->profile->controller->profile_controller->index(), TRUE);
-
-        // activate recentfc module
-        $this->load->module('recentfc');
-        $this->data->placeModule('recentfc', $this->recentfc->controller->recentfc_controller->index(), TRUE);
-
-        return $this->$self->view('sidebar', $this->data->getModules(), TRUE);
+        return $this->$self->view('profile', $data, TRUE);
     }
 
 }

@@ -2,7 +2,7 @@
         <div class="ccontent">
             <div class="container">
                 <div class="row">
-                    <?php echo $sidebar; ?>
+                    <?php echo $module; ?>
                     <div class="col-sm-9 col-md-9">
                         <h1>Deck</h1>
                         <div class="panel panel-default">
