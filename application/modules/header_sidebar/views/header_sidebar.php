@@ -1,0 +1,1 @@
+<?php echo $header_sidebar_module; ?>

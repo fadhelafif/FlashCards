@@ -40,7 +40,7 @@ class Footer_Controller extends FC_Controller {
 
     function index($data = '') {
         $self = $this->__modulereference;
-        $this->$self->view('footer', $data);
+        return $this->$self->view('footer', $data, TRUE);
     }
 
 }

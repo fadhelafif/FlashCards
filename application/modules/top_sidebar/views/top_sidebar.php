@@ -1,0 +1,1 @@
+<?php echo $top_sidebar_module; ?>

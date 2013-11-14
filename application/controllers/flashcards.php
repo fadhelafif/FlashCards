@@ -41,9 +41,37 @@ class FlashCards extends CI_Controller {
      */
 
     public function index() {
-        self::_activateHeader(); // activate header module
-        self::_activateContentSide(); // activate sidebar module
-        self::_activateFooter(); // activate footer module
+        // self::_activateHeader(); // activate header module
+        // self::_activateContentSide(); // activate sidebar module
+        // self::_activateFooter(); // activate footer module
+
+        $data = array(
+                'search' => 'Flash',
+                'menu_actived' => 'home',
+                'header_sidebar_modules' => array('search'),
+                // 'header_sidebar_modules' => array(),
+                'sidebar_modules' => array('profile', 'recentfc'),
+                // 'sidebar_modules' => array('recentfc', 'profile'),
+                // 'top_sidebar_modules' => array('announcement'),
+                // 'top_sidebar_modules' => array('complete_profile'),
+                'top_sidebar_modules' => array('announcement', 'complete_profile'),
+        );
+
+        $this->load->module('header');
+        $data['header'] = $this->header->controller->header_controller->index($data);  
+
+        $this->load->module('sidebar');
+        $data['sidebar'] = $this->sidebar->controller->sidebar_controller->index($data);
+
+        $this->load->module('top_sidebar');
+        $data['top_sidebar'] = $this->top_sidebar->controller->top_sidebar_controller->index($data);
+
+        $this->load->module('footer');
+        $data['footer'] = $this->footer->controller->footer_controller->index($data); 
+
+        $this->load->view('home', $data);
+
+
     }
 
     /*

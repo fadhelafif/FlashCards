@@ -43,14 +43,25 @@ class Sidebar_Controller extends FC_Controller {
         $self = $this->__modulereference;
 
         // activate profile module
-        $this->load->module('profile');
-        $this->data->placeModule('profile', $this->profile->controller->profile_controller->index(), TRUE);
+        // $this->load->module('profile');
+        // $this->data->placeModule('profile', $this->profile->controller->profile_controller->index(), TRUE);
 
         // activate recentfc module
-        $this->load->module('recentfc');
-        $this->data->placeModule('recentfc', $this->recentfc->controller->recentfc_controller->index(), TRUE);
+        // $this->load->module('recentfc');
+        // $this->data->placeModule('recentfc', $this->recentfc->controller->recentfc_controller->index(), TRUE);
 
-        return $this->$self->view('sidebar', $this->data->getModules(), TRUE);
+        $this->data = $data;
+
+        $this->data['sidebar_module'] = '';
+
+        foreach($this->data['sidebar_modules'] as $sidebar_module){
+            $controller_name = $sidebar_module.'_controller';
+
+            $this->load->module($sidebar_module);
+            $this->data['sidebar_module'] .= $this->$sidebar_module->controller->$controller_name->index($data);
+        }
+
+        return $this->$self->view('sidebar', $this->data, TRUE);
     }
 
 }

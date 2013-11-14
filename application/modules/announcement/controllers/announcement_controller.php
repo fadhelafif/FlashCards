@@ -28,7 +28,7 @@ if (!defined('BASEPATH')) {
  * @author Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
  * @author Fadhel Afif
  */
-class Header_Controller extends FC_Controller {
+class Announcement_Controller extends FC_Controller {
 
     function __construct() {
         parent::__construct();
@@ -40,13 +40,7 @@ class Header_Controller extends FC_Controller {
 
     function index($data = '') {
         $self = $this->__modulereference;
-
-        $this->data = $data;
-
-        $this->load->module('header_sidebar');
-        $this->data['header_sidebar'] = $this->header_sidebar->controller->header_sidebar_controller->index($data);
-
-        return $this->$self->view('header', $this->data, TRUE);
+        return $this->$self->view('announcement', $data, TRUE);
     }
 
 }
