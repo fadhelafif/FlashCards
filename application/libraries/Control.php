@@ -38,12 +38,12 @@ class Control {
         $this->CI->load->module_path('modules'); // set the location of our modules
     }
 
-    function putData($key, $data) {
+    function putData($key, $data) { // to put data in request
         $merge[$key] = $data;
         $this->handle = array_merge($this->handle, $merge);
     }
 
-    function putView($module) {
+    function putView($module) { // to view module in application
         $this->CI->load->module($module);
         $moduleController = $module . '_controller';
         $data = self::getData();
@@ -51,19 +51,19 @@ class Control {
         $this->handle = array_merge($this->handle, $merge);
     }
 
-    function putModules($key, $module) {
+    function putModules($key, $module) { // to put modules in application
         $merge[$key . '_modules'] = $module;
         $this->handle = array_merge($this->handle, $merge);
     }
 
-    function putModule($key, $module) {
+    function putModule($key, $module) { // to put module in another module
         $this->CI->load->module($module);
         $moduleController = $module . '_controller';
         $data = self::getData();
         $this->handle[$key . '_module'] .= $this->CI->$module->controller->$moduleController->index($data);
     }
 
-    function copyData($data, $module = NULL) {
+    function copyData($data, $module = NULL) { // copy data handler
         $this->handle = $data;
 
         if ($module != NULL) {
@@ -72,11 +72,11 @@ class Control {
         }
     }
 
-    function getData($key = NULL) {
+    function getData($key = NULL) { // get all data or specific modules
         return ($key == NULL) ? $this->handle : $this->handle[$key . '_modules'];
     }
 
-    private function init() {
+    private function init() { // default value for data
         $this->handle = array(
             'search' => '',
             'copyright' => '&copy; 2013 Tim KAWAN.',
