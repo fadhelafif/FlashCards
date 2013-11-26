@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="description" content="<?php echo $description; ?>">
+        <meta name="author" content="<?php echo $author; ?>">
         <link rel="shortcut icon" href="<?php echo base_url('assets/ico/favicon.png'); ?>">
 
-        <title>Flash Card</title>
+        <title><?php echo $title; ?></title>
 
         <!-- Bootstrap core CSS -->
         <link href="<?php echo base_url('assets/css/bootstrap.css'); ?>" rel="stylesheet">
@@ -38,16 +38,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Flash Card</a>
+                    <a class="navbar-brand" href="<?php echo site_url(); ?>">Flash Card</a>
                 </div>
                 <div class="navbar-collapse collapse">
 
                     <?php echo $header_sidebar; ?>
-                    
+
                     <ul class="nav navbar-nav">
                         <li><a href="#about">Explore</a></li>
                         <li><a href="#contact">Help</a></li>
-                        
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>

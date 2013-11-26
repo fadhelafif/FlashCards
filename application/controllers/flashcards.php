@@ -27,7 +27,7 @@ if (!defined('BASEPATH')) {
  *
  * @author Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
  * @property FC_Loader $load extends CI_Loader
- * @property Data $data generate data
+ * @property Control $control data and modules controller
  */
 class FlashCards extends CI_Controller {
 
@@ -41,68 +41,21 @@ class FlashCards extends CI_Controller {
      */
 
     public function index() {
-        // self::_activateHeader(); // activate header module
-        // self::_activateContentSide(); // activate sidebar module
-        // self::_activateFooter(); // activate footer module
-
-        $data = array(
-                'search' => 'Flash',
-                'menu_actived' => 'home',
-                'header_sidebar_modules' => array('search'),
-                // 'header_sidebar_modules' => array(),
-                'sidebar_modules' => array('profile', 'recentfc'),
-                // 'sidebar_modules' => array('recentfc', 'profile'),
-                // 'top_sidebar_modules' => array('announcement'),
-                // 'top_sidebar_modules' => array('complete_profile'),
-                'top_sidebar_modules' => array('announcement', 'complete_profile'),
-        );
-
-        $this->load->module('header');
-        $data['header'] = $this->header->controller->header_controller->index($data);  
-
-        $this->load->module('sidebar');
-        $data['sidebar'] = $this->sidebar->controller->sidebar_controller->index($data);
-
-        $this->load->module('top_sidebar');
-        $data['top_sidebar'] = $this->top_sidebar->controller->top_sidebar_controller->index($data);
-
-        $this->load->module('footer');
-        $data['footer'] = $this->footer->controller->footer_controller->index($data); 
-
-        $this->load->view('home', $data);
-
-
-    }
-
-    /*
-     * activate sidebar module
-     */
-
-    private function _activateContentSide() {
-        $this->load->module('sidebar');
-        $this->data->placeModule('sidebar', $this->sidebar->controller->sidebar_controller->index($this->data->getData()));
-        $this->load->view('home', $this->data->getModules());
-    }
-
-    /*
-     * activate header module
-     */
-
-    private function _activateHeader() {
-        $this->load->module('header');
-        $this->data->headerInit('search', 'Flash');
-        $this->data->headerInit('menu_actived', 'Contact');
-        $this->header->controller->header_controller->index($this->data->getData());
-    }
-
-    /*
-     * activate footer module
-     */
-
-    private function _activateFooter() {
-        $this->load->module('footer');
-        $this->data->footerInit('copyright', 'Golongan anak gaul');
-        $this->footer->controller->footer_controller->index($this->data->getData());
+        $this->control->putData('search', 'Modules Done'); // put data to request
+        /*
+         * put modules to application
+         */
+        $this->control->putModules('header_sidebar', array('search'));
+        $this->control->putModules('sidebar', array('profile', 'recentfc'));
+        $this->control->putModules('top_sidebar', array('announcement', 'complete_profile'));
+        /*
+         * put view to page
+         */
+        $this->control->putView('header');
+        $this->control->putView('sidebar');
+        $this->control->putView('top_sidebar');
+        $this->control->putView('footer');
+        $this->load->view('home', $this->control->getData()); // view page
     }
 
 }

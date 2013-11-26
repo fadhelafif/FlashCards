@@ -40,19 +40,14 @@ class Top_Sidebar_Controller extends FC_Controller {
 
     function index($data = '') {
         $self = $this->__modulereference;
+        $module = 'top_sidebar';
+        $this->control->copyData($data, $module);
 
-        $this->data = $data;
-
-        $this->data['top_sidebar_module'] = '';
-
-        foreach($this->data['top_sidebar_modules'] as $top_sidebar_module){
-            $controller_name = $top_sidebar_module.'_controller';
-
-            $this->load->module($top_sidebar_module);
-            $this->data['top_sidebar_module'] .= $this->$top_sidebar_module->controller->$controller_name->index($data);
+        foreach ($this->control->getData($module) as $as_module) {
+            $this->control->putModule($module, $as_module);
         }
 
-        return $this->$self->view('top_sidebar', $this->data, TRUE);
+        return $this->$self->view($module, $this->control->getData(), TRUE);
     }
 
 }

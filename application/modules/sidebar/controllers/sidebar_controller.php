@@ -27,7 +27,7 @@ if (!defined('BASEPATH')) {
  *
  * @author Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
  * @author Fadhel Afif
- * @property Data $data generate data
+ * @property Control $control data and modules controller
  */
 class Sidebar_Controller extends FC_Controller {
 
@@ -41,27 +41,14 @@ class Sidebar_Controller extends FC_Controller {
 
     function index($data = '') {
         $self = $this->__modulereference;
+        $module = 'sidebar';
+        $this->control->copyData($data, $module);
 
-        // activate profile module
-        // $this->load->module('profile');
-        // $this->data->placeModule('profile', $this->profile->controller->profile_controller->index(), TRUE);
-
-        // activate recentfc module
-        // $this->load->module('recentfc');
-        // $this->data->placeModule('recentfc', $this->recentfc->controller->recentfc_controller->index(), TRUE);
-
-        $this->data = $data;
-
-        $this->data['sidebar_module'] = '';
-
-        foreach($this->data['sidebar_modules'] as $sidebar_module){
-            $controller_name = $sidebar_module.'_controller';
-
-            $this->load->module($sidebar_module);
-            $this->data['sidebar_module'] .= $this->$sidebar_module->controller->$controller_name->index($data);
+        foreach ($this->control->getData($module) as $as_module) {
+            $this->control->putModule($module, $as_module);
         }
 
-        return $this->$self->view('sidebar', $this->data, TRUE);
+        return $this->$self->view($module, $this->control->getData(), TRUE);
     }
 
 }

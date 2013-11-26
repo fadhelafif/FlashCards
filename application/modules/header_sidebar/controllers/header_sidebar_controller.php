@@ -27,6 +27,7 @@ if (!defined('BASEPATH')) {
  *
  * @author Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
  * @author Fadhel Afif
+ * @property Control $control data and modules controller
  */
 class Header_Sidebar_Controller extends FC_Controller {
 
@@ -40,19 +41,14 @@ class Header_Sidebar_Controller extends FC_Controller {
 
     function index($data = '') {
         $self = $this->__modulereference;
+        $module = 'header_sidebar';
+        $this->control->copyData($data, $module);
 
-        $this->data = $data;
-
-        $this->data['header_sidebar_module'] = '';
-
-        foreach($this->data['header_sidebar_modules'] as $header_sidebar_module){
-            $controller_name = $header_sidebar_module.'_controller';
-
-            $this->load->module($header_sidebar_module);
-            $this->data['header_sidebar_module'] .= $this->$header_sidebar_module->controller->$controller_name->index($data);
+        foreach ($this->control->getData($module) as $as_module) {
+            $this->control->putModule($module, $as_module);
         }
 
-        return $this->$self->view('header_sidebar', $this->data, TRUE);
+        return $this->$self->view($module, $this->control->getData(), TRUE);
     }
 
 }

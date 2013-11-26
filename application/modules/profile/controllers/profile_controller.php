@@ -27,7 +27,7 @@ if (!defined('BASEPATH')) {
  *
  * @author Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
  * @author Fadhel Afif
- * @property Data $data generate data
+ * @property Control $control data and modules controller
  */
 class Profile_Controller extends FC_Controller {
 

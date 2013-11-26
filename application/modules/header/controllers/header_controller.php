@@ -40,13 +40,9 @@ class Header_Controller extends FC_Controller {
 
     function index($data = '') {
         $self = $this->__modulereference;
-
-        $this->data = $data;
-
-        $this->load->module('header_sidebar');
-        $this->data['header_sidebar'] = $this->header_sidebar->controller->header_sidebar_controller->index($data);
-
-        return $this->$self->view('header', $this->data, TRUE);
+        $this->control->copyData($data);
+        $this->control->putView('header_sidebar');
+        return $this->$self->view('header', $this->control->getData(), TRUE);
     }
 
 }
