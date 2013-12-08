@@ -45,20 +45,20 @@
                     <?php echo $header_sidebar; ?>
 
                     <ul class="nav navbar-nav">
-                        <li><a href="#about">Explore</a></li>
-                        <li><a href="#contact">Help</a></li>
+                        <li><a href="<?php echo site_url('explore'); ?>">Explore</a></li>
+                        <li><a href="<?php echo site_url('blog/explore?tag=help'); ?>">Help</a></li>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#">
+                            <a href="<?php echo site_url('john-doe'); ?>">
                                 <img width="20" height="20" src="<?php echo base_url('assets/img/placeholder.jpg'); ?>" alt="flashcard cover">
                                 John Doe
                             </a>
                         </li>
-                        <li><a href="#"><i class="fa fa-file-o"></i></a></li>
-                        <li><a href="#"><i class="fa fa-cogs"></i></a></li>
-                        <li><a href="#"><i class="fa fa-sign-out"></i></a></li>
+                        <li><a href="<?php echo site_url('john-doe/new'); ?>"><i class="fa fa-file-o"></i></a></li>
+                        <li><a href="<?php echo site_url('settings'); ?>"><i class="fa fa-cogs"></i></a></li>
+                        <li><a href="<?php echo site_url('logout'); ?>"><i class="fa fa-sign-out"></i></a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

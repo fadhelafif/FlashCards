@@ -1,4 +1,4 @@
-<h3>Recent Flashcards</h3>
+<h3>Related Flashcards</h3>
 <div class="media">
     <a class="pull-left" href="#">
         <img class="media-object" width="25" height="25" src="<?php echo base_url('assets/img/placeholder.jpg'); ?>" alt="flashcard cover">

@@ -41,13 +41,19 @@ class FlashCards extends CI_Controller {
      */
 
     public function index() {
+
+        $segments = $this->uri->rsegments;
+
+        // echo '<pre>'; var_dump($segments); die;    
+
+
         $this->control->putData('search', 'Modules Done'); // put data to request
         /*
          * put modules to application
          */
         $this->control->putModules('header_sidebar', array('search'));
-        $this->control->putModules('sidebar', array('profile', 'recentfc'));
-        $this->control->putModules('top_sidebar', array('announcement', 'complete_profile'));
+        $this->control->putModules('sidebar', array('profile','subscription', 'recent_fc'));
+        $this->control->putModules('top_sidebar', array('announcement'));
         /*
          * put view to page
          */
@@ -55,7 +61,290 @@ class FlashCards extends CI_Controller {
         $this->control->putView('sidebar');
         $this->control->putView('top_sidebar');
         $this->control->putView('footer');
-        $this->load->view('home', $this->control->getData()); // view page
+        $this->load->view('flashcards/index', $this->control->getData()); // view page
+    }
+
+    /*
+     * Dashboard
+     */
+
+    public function dashboard() {
+
+        $segments = $this->uri->rsegments;
+
+        // echo '<pre>'; var_dump($segments); die;    
+
+
+        $this->control->putData('search', 'Modules Done'); // put data to request
+        /*
+         * put modules to application
+         */
+        $this->control->putModules('header_sidebar', array('search'));
+        $this->control->putModules('sidebar', array('profile', 'subscription', 'recent_fc'));
+        $this->control->putModules('top_sidebar', array('complete_profile'));
+        /*
+         * put view to page
+         */
+        $this->control->putView('header');
+        $this->control->putView('sidebar');
+        $this->control->putView('top_sidebar');
+        $this->control->putView('footer');
+        $this->load->view('flashcards/dashboard', $this->control->getData()); // view page
+    }
+
+    /*
+     * Portfolio
+     */
+
+    public function portfolio() {
+
+        $segments = $this->uri->rsegments;
+
+        // echo '<pre>'; var_dump($segments); die;    
+
+
+        $this->control->putData('search', 'Modules Done'); // put data to request
+        /*
+         * put modules to application
+         */
+        $this->control->putModules('header_sidebar', array('search'));
+        $this->control->putModules('sidebar', array('profile', 'subscription', 'recent_fc'));
+        $this->control->putModules('top_sidebar', array('complete_profile'));
+        /*
+         * put view to page
+         */
+        $this->control->putView('header');
+        $this->control->putView('sidebar');
+        $this->control->putView('top_sidebar');
+        $this->control->putView('footer');
+        $this->load->view('flashcards/portfolio', $this->control->getData()); // view page
+    }
+
+    /*
+     * Profile
+     */
+
+    public function profile() {
+
+        $segments = $this->uri->rsegments;
+
+        // echo '<pre>'; var_dump($segments); die;    
+
+
+        $this->control->putData('search', 'Modules Done'); // put data to request
+        /*
+         * put modules to application
+         */
+        $this->control->putModules('header_sidebar', array('search'));
+        $this->control->putModules('sidebar', array('profile', 'subscription', 'recent_fc'));
+        $this->control->putModules('top_sidebar', array('complete_profile'));
+        /*
+         * put view to page
+         */
+        $this->control->putView('header');
+        $this->control->putView('sidebar');
+        $this->control->putView('top_sidebar');
+        $this->control->putView('footer');
+        $this->load->view('flashcards/profile', $this->control->getData()); // view page
+    }
+
+    /* 
+     * flashcards detail
+     */
+
+    public function detail(){
+
+        $segments = $this->uri->rsegments;
+
+        // echo '<pre>'; var_dump($segments); die;  
+
+        $this->control->putData('search', 'Modules Done'); // put data to request
+        /*
+         * put modules to application
+         */
+        $this->control->putModules('header_sidebar', array('search'));
+        $this->control->putModules('sidebar', array('fc_author', 'related_fc', 'recent_fc'));
+        $this->control->putModules('top_sidebar', array());
+        /*
+         * put view to page
+         */
+        $this->control->putView('header');
+        $this->control->putView('sidebar');
+        $this->control->putView('top_sidebar');
+        $this->control->putView('footer');
+
+        $this->load->view('flashcards/detail', $this->control->getData()); // view page
+    }
+
+    /*
+     * play
+     */
+
+    public function play() {
+
+        $segments = $this->uri->rsegments;
+
+        // echo '<pre>'; var_dump($segments); die;    
+
+
+        $this->control->putData('search', 'Modules Done'); // put data to request
+        /*
+         * put modules to application
+         */
+        $this->control->putModules('header_sidebar', array('search'));
+        $this->control->putModules('sidebar', array('fc_detail', 'related_fc', 'recent_fc'));
+        $this->control->putModules('top_sidebar', array());
+        /*
+         * put view to page
+         */
+        $this->control->putView('header');
+        $this->control->putView('sidebar');
+        $this->control->putView('top_sidebar');
+        $this->control->putView('footer');
+        $this->load->view('flashcards/play', $this->control->getData()); // view page
+    }
+
+    /*
+     * Add to desk
+     */
+
+    public function add_to_desk() {
+
+        redirect(site_url('john-doe/test/play'));
+    }
+
+    /*
+     * settings
+     */
+
+    public function settings() {
+
+        $segments = $this->uri->rsegments;
+
+        // echo '<pre>'; var_dump($segments); die;    
+
+
+        $this->control->putData('search', 'Modules Done'); // put data to request
+        /*
+         * put modules to application
+         */
+        $this->control->putModules('header_sidebar', array('search'));
+        $this->control->putModules('sidebar', array('fc_detail', 'related_fc', 'recent_fc'));
+        $this->control->putModules('top_sidebar', array());
+        /*
+         * put view to page
+         */
+        $this->control->putView('header');
+        $this->control->putView('sidebar');
+        $this->control->putView('top_sidebar');
+        $this->control->putView('footer');
+        $this->load->view('flashcards/settings', $this->control->getData()); // view page
+    }
+
+    /*
+     * Add
+     */
+
+    public function add() {
+
+        $segments = $this->uri->rsegments;
+
+        // echo '<pre>'; var_dump($segments); die;    
+
+
+        $this->control->putData('search', 'Modules Done'); // put data to request
+        /*
+         * put modules to application
+         */
+        $this->control->putModules('header_sidebar', array('search'));
+        $this->control->putModules('sidebar', array('profile','subscription', 'recent_fc'));
+        $this->control->putModules('top_sidebar', array());
+        /*
+         * put view to page
+         */
+        $this->control->putView('header');
+        $this->control->putView('sidebar');
+        $this->control->putView('top_sidebar');
+        $this->control->putView('footer');
+        $this->load->view('flashcards/add', $this->control->getData()); // view page
+    }
+
+    /*
+     * Explore
+     */
+
+    public function explore() {
+
+        $segments = $this->uri->rsegments;
+
+        // echo '<pre>'; var_dump($segments); die;    
+
+
+        $this->control->putData('search', 'Modules Done'); // put data to request
+        /*
+         * put modules to application
+         */
+        $this->control->putModules('header_sidebar', array('search'));
+        $this->control->putModules('sidebar', array('tag_fc', 'recent_fc'));
+        $this->control->putModules('top_sidebar', array());
+        /*
+         * put view to page
+         */
+        $this->control->putView('header');
+        $this->control->putView('sidebar');
+        $this->control->putView('top_sidebar');
+        $this->control->putView('footer');
+        $this->load->view('flashcards/explore', $this->control->getData()); // view page
+    }
+
+    function _remap() {
+
+        $segments = $this->uri->segments;
+
+        if(count($segments) == 0){
+            $this->index();
+        }
+        elseif(count($segments) == 1){
+
+            if($segments[1] == 'explore'){
+                $this->explore();
+            }
+            else{
+                $this->dashboard();
+            }            
+        }
+        elseif(count($segments) == 2){  
+
+            if($segments[2] == 'new'){
+                $this->add();
+            }
+            elseif($segments[2] == 'portfolio'){
+                $this->portfolio();
+            }
+            elseif($segments[2] == 'profile'){
+                $this->profile();
+            }
+            else{
+                $this->detail();
+            }
+        }
+        elseif(count($segments) == 3){  
+            if($segments[3] == 'play'){
+                $this->play();
+            }            
+            elseif($segments[3] == 'add-to-desk'){
+                $this->add_to_desk();
+            }            
+            elseif($segments[3] == 'settings'){
+                $this->settings();
+            }
+            else{
+                show_404();
+            }
+        }
+
+        // echo '<pre>'; var_dump($segments); die;   
+
     }
 
 }

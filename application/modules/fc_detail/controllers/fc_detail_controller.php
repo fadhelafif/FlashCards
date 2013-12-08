@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2013 Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
+ * Copyright (C) 2013 Fadhel Afif <deel.mr0@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,12 +23,13 @@ if (!defined('BASEPATH')) {
 }
 
 /**
- * Description of flashcards
+ * Description of profile module
  *
  * @author Rei Ichimaru (市丸 零) <jms21maru@gmail.com>
  * @author Fadhel Afif
+ * @property Control $control data and modules controller
  */
-class Recentfc_Controller extends FC_Controller {
+class Fc_Detail_Controller extends FC_Controller {
 
     function __construct() {
         parent::__construct();
@@ -40,7 +41,7 @@ class Recentfc_Controller extends FC_Controller {
 
     function index($data = '') {
         $self = $this->__modulereference;
-        return $this->$self->view('recentfc', $data, TRUE);
+        return $this->$self->view('fc_detail', $data, TRUE);
     }
 
 }

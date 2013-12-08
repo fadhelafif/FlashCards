@@ -46,7 +46,16 @@ $route['default_controller'] = "flashcards";
 $route['404_override'] = '';
 
 // route a per-module bases
-$route['(:any)/(.*)'] = 'modulerouter/$1/$1_controller/$2';
+$route['module/(:any)/(.*)'] = 'modulerouter/$1/$1_controller/$2';
+
+$route['settings'] = 'settings';
+$route['settings/(:any)'] = 'settings/$1';
+
+$route['blog'] = 'blog';
+$route['blog/(:any)'] = 'blog/$1';
+
+$route['explore/(:any)'] = 'flashcards/explore/$1';
+$route['(:any)'] = 'flashcards';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
